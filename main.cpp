@@ -1,18 +1,12 @@
 #include <iostream>
+#include <string>
 #include "Calculator.h"
+#include "Utils.h"
 
 double n1, n2;
 char operation;
 char validOperations[4] = { '+', '-', '*', '/' };
-
-// Determines if the given value in contained inside the array
-template <typename T, size_t N>
-bool contains(const T &val, const T (&arr)[N])
-{
-	// std::find attempts to get the first iterator pointing to val; otherwise it stops at the end of the array
-	// If it stops at the end of the array val is not part of the array; otherwise it is
-	return std::find(std::begin(arr), std::end(arr), val) != std::end(arr);
-}
+std::string divider = "------------------------------- \n";
 
 // Calculator state variables
 bool running = true;
@@ -33,12 +27,17 @@ int main()
 
 			if (contains(operation, validOperations)) {
 				std::cout << "Result: " << calculator(n1, n2, operation) << "\n";
+				std::cout << "\n" << divider << "\n";
+
 				selectingOperation = false; // End the loop once the valid choice is made
 			}
 			else {
 				std::cout << "Enter a valid operation \n";
 			}
 		}
+
+		// Ensures that the operation selection state occurs on the next calculation
+		selectingOperation = true;
 	}
 
     return 0;
