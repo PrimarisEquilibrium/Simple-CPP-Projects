@@ -29,6 +29,14 @@ int main()
 				std::cout << "Result: " << calculator(n1, n2, operation) << "\n";
 				std::cout << "\n" << divider << "\n";
 
+				// After the result is shown give the user an option to continue using the calculator
+				bool continueResult;
+				std::cout << "Would you like to continue? (0 = false, 1 = true): ";
+				std::cin >> continueResult;
+				if (!continueResult) {
+					running = false;
+				}
+
 				selectingOperation = false; // End the loop once the valid choice is made
 			}
 			else {
