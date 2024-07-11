@@ -24,7 +24,7 @@ double calculate(double n1, double n2, char operation)
 			}
 			break;
 		default:
-			throw "Invalid operation";
+			throw "Invalid operation, the only valid operations are (+, -, *, /)";
 			break;
 		}
 }
