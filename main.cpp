@@ -12,6 +12,6 @@ int main()
     std::cin >> n2;
     std::cout << "Select an operation (+, -, *, /): ";
     std::cin >> operation;
-    std::cout << "Result: " << calculate(n1, n2, operation);
+    std::cout << "Result: " << calculator(n1, n2, operation);
     return 0;
 }
