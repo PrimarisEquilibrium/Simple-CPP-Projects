@@ -1,12 +1,12 @@
-#include <iostream>
-#include <string>
 #include "Calculator.h"
+#include "Todo.h"
 
 bool running = true;
 
 int main()
 {	
 	while (running) {
-		calculatorLoop(running);
+		todoLoop(running);
+		// calculatorLoop(running);
 	}
 }

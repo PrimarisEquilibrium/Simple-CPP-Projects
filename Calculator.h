@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include "Utils.h"
 
 // Performs the passed operation from the two given numbers
