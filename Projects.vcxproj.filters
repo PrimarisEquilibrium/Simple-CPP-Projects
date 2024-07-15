@@ -12,6 +12,9 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{9b9bec81-8978-4fa2-9136-22d4cf2c2bb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Git Config Files">
+      <UniqueIdentifier>{8db2a3b0-bc03-4719-95dd-980cc3f672e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,6 +33,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
+    <None Include=".gitignore">
+      <Filter>Git Config Files</Filter>
+    </None>
+    <None Include=".editorconfig">
+      <Filter>Git Config Files</Filter>
+    </None>
+    <None Include=".gitattributes">
+      <Filter>Git Config Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <format>
 
 // Type alias of a string vector
 typedef std::vector<std::string> strVector;
@@ -59,12 +60,31 @@ void deleteEntry(strVector& entries) {
 	deleteAtPosition(entries, position + 1);
 }
 
+/**
+ * @brief Iterates over the vector and writes its contents to the given directory.
+ * @param v   a vector.
+ * @param dir a valid directory.
+ */
+template <typename T>
+void writeToFile(std::vector<T> v, std::string dir) {
+	std::ofstream file(dir);
 
+	if (file.is_open()) {
+		for (int i = 0; i < v.size(); i++) {
+			file << i + 1 << ". " << v[i] << "\n";
+		}
+		file.close();
+		std::cout << "Successfully wrote to a .txt file\n";
+	}
+	else {
+		std::cerr << "Error opening file\n";
+	}
+}
 
 /* Main todo list logic loop */
 void todoLoop(bool& running) {
 	int userInput{};
-	std::cout << "Enter: \n 1. View TODO list \n 2. Add TODO list entry \n 3. Delete TODO list entry \n 4. Save to .txt file \n 9. Exit program \n";
+	std::cout << "Enter:\n 1. View TODO list\n 2. Add TODO list entry\n 3. Delete TODO list entry\n 4. Save to .txt file\n 9. Exit program \n";
 	std::cout << "Select an option: ";
 	std::cin >> userInput;
 
@@ -82,6 +102,8 @@ void todoLoop(bool& running) {
 			deleteEntry(todoEntries);
 			break;
 		case 4:
+			// Writes the current todo list contents to a .txt file
+			writeToFile(todoEntries, "myfile.txt");
 			break;
 		case 9:
 			running = false;
