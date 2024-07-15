@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -17,7 +18,7 @@ bool contains(const T& val, const T(&arr)[N]) {
  * @param dir a valid directory.
  */
 template <typename T>
-void writeToFile(std::vector<T> v, std::string dir) {
+void writeToFile(const std::vector<T>& v, const std::string& dir) {
 	std::ofstream file(dir);
 
 	if (file.is_open()) {
@@ -25,12 +26,13 @@ void writeToFile(std::vector<T> v, std::string dir) {
 			file << i + 1 << ". " << v[i] << "\n";
 		}
 		file.close();
-		std::cout << "Successfully wrote to a .txt file\n";
+		std::cout << "Successfully wrote to the .txt file\n";
 	}
 	else {
 		std::cerr << "Error opening file\n";
 	}
 }
+
 
 /**
  * @brief Deletes a value in a vector based on the given index
@@ -39,5 +41,10 @@ void writeToFile(std::vector<T> v, std::string dir) {
  */
 template <typename T> // Template to allow for any type of vector to be passed into the function
 void deleteAtPosition(std::vector<T>& v, int position) {
-	v.erase(v.begin() + position);
+	if (position < v.size()) {
+		v.erase(v.begin() + position);
+	}
+	else {
+		std::cerr << "Error: position out of range\n";
+	}
 }

@@ -46,8 +46,8 @@ void deleteEntry(strVector& entries) {
 	std::cout << "Enter the position of entry to delete: ";
 	std::cin >> position;
 
-	// Deletes the entry at index position + 1 (as entries are listed starting at 1, not 0)
-	deleteAtPosition(entries, position + 1);
+	// Deletes the entry at index position - 1 (as entries are listed starting at 1, not 0)
+	deleteAtPosition(entries, position - 1);
 }
 
 /* Main todo list logic loop */
