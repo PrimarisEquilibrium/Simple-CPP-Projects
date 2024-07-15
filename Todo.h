@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 
@@ -42,18 +43,20 @@ void addEntry(strVector& entries) {
  */
 template <typename T> // Template to allow for any type of vector to be passed into the function
 void deleteAtPosition(std::vector<T>& v, int position) {
-	v.erase(v.begin() + (position - 1));
+	v.erase(v.begin() + position);
 }
 
 /**
- * @brief Prov
+ * @brief Deletes a value in the todo entry at the (one-based) index the user provides.
  * @param entries  a string vector containing todo entries.
  */
 void deleteEntry(strVector& entries) {
 	int position{};
 	std::cout << "Enter the position of entry to delete: ";
 	std::cin >> position;
-	deleteAtPosition(entries, position);
+
+	// Deletes the entry at index position + 1 (as entries are listed starting at 1, not 0)
+	deleteAtPosition(entries, position + 1);
 }
 
 /* Main todo list logic loop */
