@@ -48,7 +48,7 @@ void deleteAtPosition(std::vector<T>& v, int position) {
 
 /**
  * @brief Deletes a value in the todo entry at the (one-based) index the user provides.
- * @param entries  a string vector containing todo entries.
+ * @param entries a string vector containing todo entries.
  */
 void deleteEntry(strVector& entries) {
 	int position{};
@@ -58,6 +58,8 @@ void deleteEntry(strVector& entries) {
 	// Deletes the entry at index position + 1 (as entries are listed starting at 1, not 0)
 	deleteAtPosition(entries, position + 1);
 }
+
+
 
 /* Main todo list logic loop */
 void todoLoop(bool& running) {
