@@ -16,9 +16,8 @@ strVector todoEntries;
  */
 static void displayEntries(strVector entries) {
 	for (int i = 0; i < entries.size(); i++) {
-		std::cout << i + 1 << ". " << entries[i];
+		std::cout << i + 1 << ". " << entries[i] << "\n";
 	}
-	std::cout << "\n";
 }
 
 /**
@@ -34,6 +33,23 @@ void addEntry(strVector& entries) {
 	std::getline(std::cin, newEntry);
 
 	entries.push_back(newEntry);
+}
+
+/**
+ * @brief Deletes a todo list entry based on the given index (one-based)
+ * @param entries  a string vector containing todo entries.
+ * @param position the position of the element to delete (one-based indexing)
+ */
+void deleteAtPosition(strVector& entries, int position) {
+	// Deletes the entry at the given position (where 1 is at the start of the vector)
+	entries.erase(entries.begin() + (position - 1));
+}
+
+void deleteEntry(strVector& entries) {
+	int position{};
+	std::cout << "Enter the position of entry to delete: ";
+	std::cin >> position;
+	deleteAtPosition(entries, position);
 }
 
 /* Main todo list logic loop */
@@ -53,6 +69,8 @@ void todoLoop(bool& running) {
 			addEntry(todoEntries);
 			break;
 		case 3:
+			// Deletes an entry in the todo list
+			deleteEntry(todoEntries);
 			break;
 		case 4:
 			break;
