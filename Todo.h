@@ -10,6 +10,10 @@ typedef std::vector<std::string> strVector;
 // A vector is used for its dynamic size (users may add an arbitrary amount of values)
 strVector todoEntries;
 
+/**
+ * @brief Outputs the current todo entries in an ordered list.
+ * @param entries a string vector containing todo entries.
+ */
 static void displayEntries(strVector entries) {
 	for (int i = 0; i < entries.size(); i++) {
 		std::cout << i + 1 << ". " << entries[i];
@@ -17,6 +21,10 @@ static void displayEntries(strVector entries) {
 	std::cout << "\n";
 }
 
+/**
+ * @brief Pushes a user obtained string to a todo entry string vector.
+ * @param entries a string vector containing todo entries.
+ */
 void addEntry(strVector& entries) {
 	std::string newEntry{};
 	std::cout << "Enter TODO entry: ";
@@ -28,6 +36,7 @@ void addEntry(strVector& entries) {
 	entries.push_back(newEntry);
 }
 
+/* Main todo list logic loop */
 void todoLoop(bool& running) {
 	int userInput{};
 	std::cout << "Enter: \n 1. View TODO list \n 2. Add TODO list entry \n 3. Delete TODO list entry \n 4. Save to .txt file \n 9. Exit program \n";
