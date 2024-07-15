@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <vector>
 #include <format>
+#include "Utils.h"
 
 // Type alias of a string vector
 typedef std::vector<std::string> strVector;
@@ -38,16 +38,6 @@ void addEntry(strVector& entries) {
 }
 
 /**
- * @brief Deletes a value in a vector based on the given index
- * @param v        a vector
- * @param position the position of the element to delete
- */
-template <typename T> // Template to allow for any type of vector to be passed into the function
-void deleteAtPosition(std::vector<T>& v, int position) {
-	v.erase(v.begin() + position);
-}
-
-/**
  * @brief Deletes a value in the todo entry at the (one-based) index the user provides.
  * @param entries a string vector containing todo entries.
  */
@@ -58,27 +48,6 @@ void deleteEntry(strVector& entries) {
 
 	// Deletes the entry at index position + 1 (as entries are listed starting at 1, not 0)
 	deleteAtPosition(entries, position + 1);
-}
-
-/**
- * @brief Iterates over the vector and writes its contents to the given directory.
- * @param v   a vector.
- * @param dir a valid directory.
- */
-template <typename T>
-void writeToFile(std::vector<T> v, std::string dir) {
-	std::ofstream file(dir);
-
-	if (file.is_open()) {
-		for (int i = 0; i < v.size(); i++) {
-			file << i + 1 << ". " << v[i] << "\n";
-		}
-		file.close();
-		std::cout << "Successfully wrote to a .txt file\n";
-	}
-	else {
-		std::cerr << "Error opening file\n";
-	}
 }
 
 /* Main todo list logic loop */
