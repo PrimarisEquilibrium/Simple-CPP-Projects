@@ -36,15 +36,19 @@ void addEntry(strVector& entries) {
 }
 
 /**
- * @brief Deletes a todo list entry based on the given index (one-based)
- * @param entries  a string vector containing todo entries.
- * @param position the position of the element to delete (one-based indexing)
+ * @brief Deletes a value in a vector based on the given index
+ * @param v        a vector
+ * @param position the position of the element to delete
  */
-void deleteAtPosition(strVector& entries, int position) {
-	// Deletes the entry at the given position (where 1 is at the start of the vector)
-	entries.erase(entries.begin() + (position - 1));
+template <typename T> // Template to allow for any type of vector to be passed into the function
+void deleteAtPosition(std::vector<T>& v, int position) {
+	v.erase(v.begin() + (position - 1));
 }
 
+/**
+ * @brief Prov
+ * @param entries  a string vector containing todo entries.
+ */
 void deleteEntry(strVector& entries) {
 	int position{};
 	std::cout << "Enter the position of entry to delete: ";
