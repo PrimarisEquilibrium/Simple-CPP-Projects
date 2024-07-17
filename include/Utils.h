@@ -9,6 +9,10 @@
  * template function. Template functions require both declaration and implementation
  * details. Using forward declarations means that the function implementation is hidden
  * and will result in a linker error as template functions are not able to be compiled.
+ * 
+ * Inline functions are used as multiple duplicate functions could be created when including this
+ * header in various source files. Inline allows multiple definition of these functions without
+ * violating ODR.
  */
 
 /**
@@ -51,7 +55,7 @@ inline void writeToFile(const std::vector<T>& v, const std::string& dir) {
  * @param position the position of the element to delete
  */
 template <typename T> // Template to allow for any type of vector to be passed into the function
-void deleteAtPosition(std::vector<T>& v, int position) {
+inline void deleteAtPosition(std::vector<T>& v, int position) {
 	if (position < v.size()) {
 		v.erase(v.begin() + position);
 	}
