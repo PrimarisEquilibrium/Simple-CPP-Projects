@@ -4,7 +4,7 @@
 bool running = true;
 
 int main()
-{	
+{
 	while (running) {
 		todoLoop(running);
 		// calculatorLoop(running);

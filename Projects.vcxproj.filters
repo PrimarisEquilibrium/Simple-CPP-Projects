@@ -17,18 +17,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="include\Utils.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\calculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.h">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="src\todo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Calculator.h">
+    <ClInclude Include="include\Calculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Todo.h">
+    <ClInclude Include="include\Todo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

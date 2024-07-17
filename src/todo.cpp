@@ -1,9 +1,9 @@
-#pragma once
+#include "Utils.h"
+#include "Todo.h"
 #include <iostream>
 #include <string>
 #include <vector>
 #include <format>
-#include "Utils.h"
 
 // Type alias of a string vector
 typedef std::vector<std::string> strVector;
@@ -58,23 +58,23 @@ void todoLoop(bool& running) {
 	std::cin >> userInput;
 
 	switch (userInput) {
-		case 1:
-			// Display all entries in the todo list
-			displayEntries(todoEntries);
-			break;
-		case 2:
-			// Adds an entry to the todo list
-			addEntry(todoEntries);
-			break;
-		case 3:
-			// Deletes an entry in the todo list
-			deleteEntry(todoEntries);
-			break;
-		case 4:
-			// Writes the current todo list contents to a .txt file
-			writeToFile(todoEntries, "myfile.txt");
-			break;
-		case 9:
-			running = false;
+	case 1:
+		// Display all entries in the todo list
+		displayEntries(todoEntries);
+		break;
+	case 2:
+		// Adds an entry to the todo list
+		addEntry(todoEntries);
+		break;
+	case 3:
+		// Deletes an entry in the todo list
+		deleteEntry(todoEntries);
+		break;
+	case 4:
+		// Writes the current todo list contents to a .txt file
+		writeToFile(todoEntries, "myfile.txt");
+		break;
+	case 9:
+		running = false;
 	}
 }
